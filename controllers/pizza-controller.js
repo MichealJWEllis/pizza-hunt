@@ -32,7 +32,7 @@ const pizzaController = {
     createPizza({ body }, res) {
         Pizza.create(body)
             .then(dbPizzaData => res.json(dbPizzaData))
-            .catch(err => res.status(404).json.(err))
+            .catch(err => res.status(404).json(err))
     },
 
     // update pizza by id
