@@ -1,4 +1,5 @@
 const { Schema, model, Types } = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
 
 const ReplySchema = new Schema(
     {
@@ -50,6 +51,10 @@ const CommentSchema = new Schema(
         id: false
     }
 );
+
+CommentSchema.virtual('replyCount').get(function () {
+    return this.replies.length;
+});
 
 const Comment = model('Comment', CommentSchema);
 
